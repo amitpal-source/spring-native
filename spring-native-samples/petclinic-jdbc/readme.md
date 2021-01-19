@@ -11,7 +11,7 @@ This is a proof of concept to observe how PGO improves the performance of worklo
 The tools, techniques and results are shown below 
 With throughput using Jmeter JMX for pet clinic
 
-A)Regular Native Image
+A) Regular Native Image
 
 ```
 Amitpals-MacBook-Pro-2:petclinic-jdbc adhillon$ ./build.sh 
@@ -35,6 +35,50 @@ Image size: 106.2M
 4th Run Startup time: 0.11 (JVM running for 0.113)
 
 ![image](https://github.com/amitpal-source/spring-native/blob/master/spring-native-samples/petclinic-jdbc/Screenshot%202020-09-28%20at%2009.28.24.png)
+
+A) After PGO 1st Run
+
+```
+Amitpals-MacBook-Pro-2:petclinic-jdbc adhillon$ ./build.sh 
+=== Building petclinic-jdbc sample ===
+Packaging petclinic-jdbc with Maven
+Unpacking petclinic-jdbc-0.0.1-SNAPSHOT.jar
+Compiling petclinic-jdbc with GraalVM Version 20.2.0 (Java Version 1.8.0_261)
+SUCCESS
+Testing executable 'petclinic-jdbc'
+SUCCESS
+Build memory: 7.01GB
+Image build time: 507.8s
+RSS memory: 62.8M
+Image size: 95.0M
+```
+Startup time: 0.411 (JVM running for 0.449)
+
+B) After PGO 2nd Run
+
+```
+Amitpals-MacBook-Pro-2:petclinic-jdbc adhillon$ ./build.sh 
+=== Building petclinic-jdbc sample ===
+Packaging petclinic-jdbc with Maven
+Unpacking petclinic-jdbc-0.0.1-SNAPSHOT.jar
+Compiling petclinic-jdbc with GraalVM Version 20.2.0 (Java Version 1.8.0_261)
+SUCCESS
+Testing executable 'petclinic-jdbc'
+SUCCESS
+Build memory: 6.77GB
+Image build time: 523.4s
+RSS memory: 62.8M
+Image size: 95.1M
+```
+1st Run Startup time: 0.4 (JVM running for 0.448)\
+2nd Run Startup time: 0.1 (JVM running for 0.102)\
+3rd Run Startup time: 0.206 (JVM running for 0.208)\
+4th Run Startup time: 0.109 (JVM running for 0.111)\
+5th Run Startup time: 0.105 (JVM running for 0.107)
+
+
+
+
 
 
 
