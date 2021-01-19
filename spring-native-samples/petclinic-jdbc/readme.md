@@ -76,7 +76,46 @@ Image size: 95.1M
 4th Run Startup time: 0.109 (JVM running for 0.111)\
 5th Run Startup time: 0.105 (JVM running for 0.107)
 
+![image](https://github.com/amitpal-source/spring-native/blob/master/spring-native-samples/petclinic-jdbc/Screenshot%202020-09-24%20at%2018.42.24.png)
 
+A) 1st Run With PGO Instrument
+
+```
+Amitpals-MacBook-Pro-2:petclinic-jdbc adhillon$ ./build.sh 
+=== Building petclinic-jdbc sample ===
+Packaging petclinic-jdbc with Maven
+Unpacking petclinic-jdbc-0.0.1-SNAPSHOT.jar
+Compiling petclinic-jdbc with GraalVM Version 20.2.0 (Java Version 1.8.0_261)
+SUCCESS
+Testing executable 'petclinic-jdbc'
+SUCCESS
+Build memory: 7.91GB
+Image build time: 650.1s
+RSS memory: 79.4M
+Image size: 303.4M
+```
+Startup time: 0.77 (JVM running for 0.834)
+
+B) 2nd run with PGO Instrument
+
+```
+Amitpals-MacBook-Pro-2:petclinic-jdbc adhillon$ ./build.sh 
+=== Building petclinic-jdbc sample ===
+Packaging petclinic-jdbc with Maven
+Unpacking petclinic-jdbc-0.0.1-SNAPSHOT.jar
+Compiling petclinic-jdbc with GraalVM Version 20.2.0 (Java Version 1.8.0_261)
+SUCCESS
+Testing executable 'petclinic-jdbc'
+SUCCESS
+Build memory: 8.67GB
+Image build time: 679.9s
+RSS memory: 79.1M
+Image size: 303.4M
+```
+1st Run Startup time: 0.568 (JVM running for 0.633)\
+2nd Run Startup time: 0.173 (JVM running for 0.176)\
+3rd Run Startup time: 0.255 (JVM running for 0.26)\
+4th Run Startup time: 0.184 (JVM running for 0.188)
 
 
 
